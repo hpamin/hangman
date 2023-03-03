@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.screen{
+  width: 100%;
+  height: 100vh;
+}
+
+/*****hangman*****/
+.hangman{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  background-color: #5026BD;
+  box-shadow: inset 0px -3px 5px 1px black;
+  /* border-radius: 0 0px 20px 20px; */
+  position: sticky;
+}
+
+/*****HangmanDraw*****/
+.HangmanDraw{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HangmanBase{
+  position: relative;
+}
+.upLine{
+  width: 200px;
+  height: 15px;
+  background-color: white;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.upLineRight{
+  width: 15px;
+  height: 31px;
+  background-color: white;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.verticalLine{
+  width: 15px;
+  height: 300px;
+  background-color: white;
+}
+.downLine{
+  width: 210px;
+  height: 10px;
+  background-color: white;
+  margin-left: -95px;
+  border-radius: 8px;
+}
+
+.Head{
+  width: 62px;
+  height: 62px;
+  border: 7px solid white;
+  border-radius: 100%;
+  position: absolute;
+  top: 39px;
+  right: -26px;
+}
+.Body{
+  width: 10px;
+  height: 115px;
+  background-color: white;
+  position: absolute;
+  top: 95px;
+  right: 0px;
+}
+.LeftHand{
+  width: 9px;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  top: 95px;
+  right: 20px;
+  rotate: -45deg;
+}
+.RightHand{
+  width: 9px;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  top: 95px;
+  right: -20px;
+  rotate: 45deg;
+}
+.LeftLeg{
+  width: 9px;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  rotate: 45deg;
+}
+.RightLeg{
+  width: 9px;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  top: 200px;
+  right: -20px;
+  rotate: -45deg;
+}
+/*****GuessWord*****/
+.GuessWord{
+  width: 60%;
+  height: 100%;
+}
+.Hearts{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
+  word-spacing: -15px;
+}
+.wordLetterGuess{
+  width: 100%;
+  height: 85%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.wordGuess{
+  color: white;
+  font-size: 9rem;
+  display: inline;
+  font-weight: bold;
+  font-family: monospace;
+  text-transform: uppercase;
+  border-bottom: 10px solid white;
+  text-shadow: 12px 7px 0px black;
+}
+
+/*****Keyboard*****/
+.Keyboard{    
+  width: 70%;
+  height: 40%;
+  border-radius: 8px;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.keyboardKeys{
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.key{
+  position: relative;
+  width: 65px;
+  height: 65px;
+}
+.btnKeyboard{
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  top: -7px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: monospace;
+  text-transform: uppercase;
+  transition: 0.2s;
+  background-color: #B394BB;
+  border: 2px solid #302A55;
+}
+.btnKeyboard.active{
+  top: 0;
+  background-color: green;
+}
+.btnKeyboard.inactive{
+  top: 0px;
+  background-color: red;
+}
+.btnKeyboard:disabled{
+ color: black;
+ cursor: default; 
+}
+.btnKeyboard:hover:not(:disabled),.btnKeyboard:focus:not(:disabled){
+    top: 0px;
+}
+.shadow{
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background-color: #663581;
+  border: 2px solid #302A55;
+  border-radius: 8px;
+}
+.screenTop{
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+}
+
+/*****Responsive*******/
+ @media screen and (max-width : 1280px) {
+  .wordGuess{
+    font-size: 6rem;
+  }
+}
+@media screen and (max-width : 1045px) {
+  .wordGuess{
+    font-size: 5rem;
+  }
+  .HangmanDraw{
+    width: 45%;
+  }
+  .GuessWord{
+    width: 55%;
+  } 
+  .keyboardKeys{
+    height: 80%;
+  }
+  .btnKeyboard{
+    width: 55px;
+    height: 55px;
+    top:-6px;
+  }
+  .shadow{
+    width: 55px;
+    height: 55px;
+  } 
+ }
+ @media screen and (max-width : 975px) {
+  .GuessWord{
+    width: 100%;
+  }
+  .wordGuess{
+    font-size: 7rem;
+  }
+ }
+ @media screen and (max-width : 768px) {
+  .hangman{
+    height: 45%;
+  }
+  .Keyboard{
+    width: 95%;
+    height: 55%;
+  } 
+ }
+ @media screen and (max-width : 611px) {
+  .wordGuess{
+    font-size: 4rem;
+  }
+  .btnKeyboard{
+    width: 60px;
+    height: 60px;
+    top:-7px;
+  }
+  .shadow{
+    width: 60px;
+    height: 60px;
+  } 
+  .hangman{
+    height: 40%;
+  }
+  .Keyboard{
+    height: 60%;
+  } 
+ }
+ @media screen and (max-width : 451px) {
+  .wordGuess{
+    font-size: 3rem;
+    border-bottom: 5px solid white;
+    text-shadow: 5px 3px 4px black;
+  }
+  .btnKeyboard{
+    width: 50px;
+    height: 50px;
+    top:-7px;
+  }
+  .shadow{
+    width: 50px;
+    height: 50px;
+  }
+  .keyboardKeys{
+    gap: 0;
+    height: 90%;
+  }
+ }
